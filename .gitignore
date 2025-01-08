@@ -2,4 +2,7 @@ StanfordCPPLib
 .vs
 .DS_Store
 notes.txt
-
+test.cpp
+a.exe
+test.exe
+settings.json
