@@ -6,3 +6,5 @@ test.cpp
 a.exe
 test.exe
 settings.json
+lib/
+res/
