@@ -1,11 +1,3 @@
-/* 3. Stretch
-Write a function named stretch that accepts a reference to a vector of integers as a parameter and
-modifies it to be twice as large, replacing every integer with a pair of integers, each half the
-original. If a number in the original vector is odd, then the first number in the new pair should be
-one higher than the second so that the sum equals the original number. For example, passing the
-vectior {18, 7, 4, 24, 11} should modify the vector to contain {9, 9, 4, 3, 2, 2, 12,
-12, 6, 5}. */
-
 #include <iostream>
 #include "vector.h"
 
