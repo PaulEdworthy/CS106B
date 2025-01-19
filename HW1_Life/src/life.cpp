@@ -1,7 +1,3 @@
-// This is the CPP file you will edit and turn in.
-// Also remove these comments here and add your own.
-// TODO: remove this comment header!
-
 #include <cctype>
 #include <cmath>
 #include <fstream>
@@ -15,12 +11,11 @@
 #include "simpio.h"
 #include "strlib.h"
 #include "lifegui.h"
-using namespace std;
 
 int main() {
     // TODO: Finish the program!
 
 
-    cout << "Have a nice Life!" << endl;
+    std::cout << "Hello, world!\n";
     return 0;
 }
