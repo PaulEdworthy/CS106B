@@ -1,25 +1,26 @@
-// This is the CPP file you will edit and turn in.
-// Also remove these comments here and add your own.
-// TODO: remove this comment header!
-
 #include <cctype>
 #include <cmath>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "console.h"
-#include "filelib.h"
-#include "grid.h"
-#include "gwindow.h"
-#include "simpio.h"
-#include "lifegui.h"
-using namespace std;
 
 int main() {
-    // TODO: Finish the program!
+    std::string filename;
+    std::cout << "Enter a file name: ";
+    std::cin >> filename;
 
+    std::ifstream file("../res/" + filename);
+    std::string line;
 
-    cout << "Have a nice Life!" << endl;
+    if(!file){
+        std::cerr << "Unable to open file" << "\n";
+        return 1;
+    }
+
+    while (line, file){
+        std::cout << line << "\n";
+    }
+    file.close();
     return 0;
 }
