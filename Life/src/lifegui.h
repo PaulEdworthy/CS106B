@@ -9,9 +9,9 @@
 #define _lifegui_h_
 
 #include <string>    // for std::string
-#include "gwindow.h" // for GWindow
-#include "vector.h"  // for Vector
-#include "grid.h"    // for Grid
+#include "../lib/StanfordCPPLib/gwindow.h" // for GWindow
+#include "../lib/StanfordCPPLib/vector.h"  // for Vector
+#include "../lib/StanfordCPPLib/grid.h"    // for Grid
 
 class LifeGUI {
 public:

@@ -31,6 +31,10 @@ TEMPLATE = app
 
 # make sure we do not accidentally #include files placed in 'resources'
 CONFIG += no_include_pwd
+CONFIG += ordered
+CONFIG -= parallel
+QMAKE_CXXFLAGS_WARN_ON += -Wall
+
 
 ###############################################################################
 # BEGIN SECTION FOR SPECIFYING SOURCE/LIBRARY/RESOURCE FILES OF PROJECT       #
@@ -127,6 +131,12 @@ QMAKE_CXXFLAGS += -Wunreachable-code
 QMAKE_CXXFLAGS += -Wno-missing-field-initializers
 QMAKE_CXXFLAGS += -Wno-sign-compare
 QMAKE_CXXFLAGS += -Wno-write-strings
+
+OBJECTS_DIR = debug
+MOC_DIR = debug/moc
+RCC_DIR = debug/rcc
+UI_DIR = debug/ui
+
 
 # additional flags for Windows
 win32 {
@@ -313,52 +323,52 @@ POST_TARGETDEPS += copyResources
 ###############################################################################
 
 # settings specific to CS 106 B/X auto-grading programs; do not modify
-exists($$PWD/lib/autograder/*.cpp) {
-    # include the various autograder source code and libraries in the build process
-    SOURCES += $$PWD/lib/autograder/*.cpp
-    HEADERS += $$PWD/lib/autograder/*.h
-    INCLUDEPATH += $$PWD/lib/StanfordCPPLib/private/
-    INCLUDEPATH += $$PWD/lib/autograder/
-    DEFINES += SPL_AUTOGRADER_MODE
+#exists($$PWD/lib/autograder/*.cpp) {
+#    # include the various autograder source code and libraries in the build process
+#    SOURCES += $$PWD/lib/autograder/*.cpp
+#    HEADERS += $$PWD/lib/autograder/*.h
+#    INCLUDEPATH += $$PWD/lib/StanfordCPPLib/private/
+#    INCLUDEPATH += $$PWD/lib/autograder/
+#    DEFINES += SPL_AUTOGRADER_MODE
 
-    # a check to ensure that required autograder resources are present in this project
-    !exists($$PWD/res/autograder/pass.gif) {
-        message(*** Stanford library cannot find its image files pass.gif, fail.gif, etc.!)
-        message(*** This project cannot run without those images present.)
-        message(*** Place those files into your res/autograder/ folder and try again.)
-        error(Exiting.)
-    }
+#    # a check to ensure that required autograder resources are present in this project
+#    !exists($$PWD/res/autograder/pass.gif) {
+#        message(*** Stanford library cannot find its image files pass.gif, fail.gif, etc.!)
+#        message(*** This project cannot run without those images present.)
+#        message(*** Place those files into your res/autograder/ folder and try again.)
+#        error(Exiting.)
+#    }
 
-    # copy autograder resource files into build folder
-    copyResources.input += $$files($$PWD/res/autograder/*)
-    OTHER_FILES += $$files(res/autograder/*)
+#    # copy autograder resource files into build folder
+#    copyResources.input += $$files($$PWD/res/autograder/*)
+#    OTHER_FILES += $$files(res/autograder/*)
 
-    !win32 {
-        LIBS += -lpthread
-        copyToDestdir($$files($$PWD/res/autograder/*))
-    }
-    win32 {
-        copyToDestdir($$PWD/res/autograder)
-    }
+#    !win32 {
+#        LIBS += -lpthread
+#        copyToDestdir($$files($$PWD/res/autograder/*))
+#    }
+#    win32 {
+#        copyToDestdir($$PWD/res/autograder)
+#    }
 
-    # copy source code into build folder so it can be analyzed by style checker
-    exists($$PWD/src/*.cpp) {
-        copyResources.input += $$files($$PWD/src/*.cpp)
-        copyToDestdir($$files($$PWD/src/*.cpp))
-    }
-    exists($$PWD/*.cpp) {
-        copyResources.input += $$files($$PWD/*.cpp)
-        copyToDestdir($$files($$PWD/*.cpp))
-    }
-    exists($$PWD/src/*.h) {
-        copyResources.input += $$files($$PWD/src/*.h)
-        copyToDestdir($$files($$PWD/src/*.h))
-    }
-    exists($$PWD/*.h) {
-        copyResources.input += $$files($$PWD/*.h)
-        copyToDestdir($$files($$PWD/*.h))
-    }
-}
+#    # copy source code into build folder so it can be analyzed by style checker
+#    exists($$PWD/src/*.cpp) {
+#        copyResources.input += $$files($$PWD/src/*.cpp)
+#        copyToDestdir($$files($$PWD/src/*.cpp))
+#    }
+#    exists($$PWD/*.cpp) {
+#        copyResources.input += $$files($$PWD/*.cpp)
+#        copyToDestdir($$files($$PWD/*.cpp))
+#    }
+#    exists($$PWD/src/*.h) {
+#        copyResources.input += $$files($$PWD/src/*.h)
+#        copyToDestdir($$files($$PWD/src/*.h))
+#    }
+#    exists($$PWD/*.h) {
+#        copyResources.input += $$files($$PWD/*.h)
+#        copyToDestdir($$files($$PWD/*.h))
+#    }
+#}
 ###############################################################################
 # END SECTION FOR CS 106B/X AUTOGRADER PROGRAMS                               #
 ###############################################################################

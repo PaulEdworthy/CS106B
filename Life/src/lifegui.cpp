@@ -13,9 +13,9 @@
 #include <sstream>  // for ostringstream
 #include <iomanip>  // for setw, setfill
 #include <ios>      // for hex stream manipulator
-#include "random.h" // for randomInteger
-#include "strlib.h" // for integerToString
-#include "error.h"  // for error
+#include "../lib/StanfordCPPLib/random.h" // for randomInteger
+#include "../lib/StanfordCPPLib/strlib.h" // for integerToString
+#include "../lib/StanfordCPPLib/error.h"  // for error
 #include "lifegui.h"
 using namespace std;
 
