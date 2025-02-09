@@ -3,6 +3,7 @@ StanfordCPPLib
 .DS_Store
 notes.txt
 test.cpp
-a.exe
+*.exe
 test.exe
 settings.json
+c_cpp_properties.json
